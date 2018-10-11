@@ -1,0 +1,35 @@
+body {
+    font-family: Arial;
+    margin: 0pt;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    grid-gap: 5px;
+    /* height: 100vh; */
+}
+
+.item {
+    background: rgb(174, 221, 236);
+    padding: 10px;
+    border: solid 2px black;
+}
+
+.item:nth-of-type(1) {
+    background: blue;
+    grid-column: 1 / span 3;
+    grid-row: 1 / span 2;
+}
+
+.item:nth-of-type(2) {
+    background: red;
+    grid-column: 4 / span 2;
+    grid-row: 1 / span 2;
+}
+
+.item:nth-of-type(3) {
+    background: green;
+    grid-column: 6 / span 2;
+}

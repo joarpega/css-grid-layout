@@ -1,0 +1,31 @@
+body {
+    font-family: Arial;
+    margin: 0pt;
+}
+
+.container {
+    display: grid;
+    grid-gap: 5px;
+    height: 100vh;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(4, 100px);
+    /*Valores posibles: justify-items: start end center stretch; */
+    /* justify-items: center; */
+    /*Valores posibles: align-items: start end center stretch */
+    /* align-items: center; */
+    /* justify-content: start end center stretch space-around space-between space-evenly; */
+    justify-content: center;
+    /* align-content: start end center stretch space-around space-between space-evenly; */
+    align-content: center;
+}
+
+.item {
+    background: rgb(174, 221, 236);
+    padding: 10px;
+    border: solid 2px black;
+}
+
+.item:nth-of-type(5) {
+    /* align-self: start;
+    justify-self: start; */
+}
