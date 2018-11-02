@@ -17,10 +17,11 @@ Grid Container: Va a ser nuestro elemento padre el cual va a llevar nuestro nuev
 Grid Item: Los grid item son los hijos directos de un grid container.
 
 
-Grid Line: Lineas divisorias horizontales y verticales.
+Grid Line: Lineas divisorias horizontales, verticales y el contorno del grid.
 
 
 Grid Track: Espacio entre dos lineas adyacentes, filas y columnas.
+![Grid track](/img-doc/1_Grid_Track.png)
 
 
 Grid Cell: Espacio en dos filas adyacentes y dos columnas adyacentes.
