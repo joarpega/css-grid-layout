@@ -2,22 +2,29 @@
 ### Ejemplos para usar CSS Grid Layout
 
 ~~~
-'<section class="container">'
-    <div class="item">contenido #1</div>
-    <div class="item">contenido #2</div>
-    <div class="item">contenido #3</div>
-</section>
+<div class="container">
+	<div class="item"></div>
+	<div class="item">
+		<p class="sub-item"> </p>  /*Este no es un grid item */
+	</div>
+	<div class="item"></div>
+</div>
 ~~~
 
+Grid Container: Va a ser nuestro elemento padre el cual va a llevar nuestro nuevo display llamado grid.
 
-Grid Container: Es el elemento padre que va a tener puesto un nuevo tipo de display: grid. Nos permite colocar otras propiedades para manipular nuestro layaout.
 
-Grid Item: Son nuestro componentes, contenido, lo que vamos a manejar. Nuestras filas o columnas que vamos a mover a nuestro gusto. Son hijos directos de grid.
+Grid Item: Los grid item son los hijos directos de un grid container.
+
 
 Grid Line: Lineas divisorias horizontales y verticales.
 
-Grid Track: Espacio entre dos líneas adyacentes. Filas y columnas.
 
-Grid Cell: Celdas, espacio en dos filas adyacentes y 2 columnas adyacentes.
+Grid Track: Espacio entre dos lineas adyacentes, filas y columnas.
 
-Grid Area: Espacio rodeado por 4 grid lines
+
+Grid Cell: Espacio en dos filas adyacentes y dos columnas adyacentes.
+
+
+Grid Area: Espacio rodeado por cuatro grid lines (puede ser mayor tamaño).
+
