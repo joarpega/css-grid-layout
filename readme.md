@@ -1,5 +1,5 @@
 # css-grid-layout
-### Ejemplos para usar CSS Grid Layout
+## Ejemplos para usar CSS Grid Layout
 
 ~~~
 <div class="container">
@@ -18,6 +18,7 @@ Grid Item: Los grid item son los hijos directos de un grid container.
 
 
 Grid Line: Lineas divisorias horizontales, verticales y el contorno del grid.
+![Grid track](/img-doc/1_diagram_numbered_grid_lines.png)
 
 
 Grid Track: Espacio entre dos lineas adyacentes, filas y columnas.
@@ -25,7 +26,130 @@ Grid Track: Espacio entre dos lineas adyacentes, filas y columnas.
 
 
 Grid Cell: Espacio en dos filas adyacentes y dos columnas adyacentes.
+![Grid track](/img-doc/1_Grid_Cell.png)
 
 
 Grid Area: Espacio rodeado por cuatro grid lines (puede ser mayor tamaño).
+![Grid track](/img-doc/1_Grid_Area.png)
+
+
+Para inicializar un contenedor con grid debemos colocar  [ display: grid; ], con grid-template-columns se especifica el tamaño de las columnas y la cantidad de columnas.
+~~~
+.container {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+}
+~~~
+
+Con [ grid-template-rows ] se especifica el tamaño de las filas y la cantidad de filas.
+~~~
+.container {
+    display: grid;
+    grid-template-rows: 25% 50% 25%;
+}
+~~~
+Con [ grid-template: filas / columnas; ] podemos configurar las dos anterionres
+~~~
+.container {
+    display: grid;
+    grid-template: 300px 100px 100px / 50% 200px 400px; 
+}
+~~~
+Al colocar el [ display: grid ] y [ grid-template: filas / columnas; ] en el hijo 
+directo creamos un "Subgrid"
+
+Nota: nth-of-type(4) nos permite seleccionar el 4to hijo que tenga la clase 
+especificada
+~~~
+.container {
+    display: grid;
+    grid-template: 300px 100px 100px / 50% 200px 400px; 
+}
+.item {
+    background: rgb(174, 221, 236);
+    padding: 10px;
+    border: solid 2px red;
+}
+
+.item:nth-of-type(4) {
+    background: blue;
+    overflow: auto;
+    display: grid;
+    grid-template: 50px 50px 50px / 100px 100px 100px;
+}
+
+.item .item {
+    background: yellow;
+}
+~~~
+         
+Al usar [ grid-column-gap: 30px; ] nos permite colocar un margen a las columnas.
+
+Al usar [ grid-row-gap: 30px; ] nos permite colocar un margen a las filas.
+
+Al usar [ grid-gap: filas columnas; ] nos permite colocar un margen a las filas y columnas
+~~~
+.container {
+    display: grid;
+    grid-template: 300px 100px 100px / 50% 200px 25%;
+    grid-gap: 10px 100px;
+}
+~~~
+
+Nueva unidad de medida para los grids [ fr = fracciones ], distribuye el espacio entre columnas de una manera homogenea
+
+Funcion: [ repeat(cantidad, tamaño) ] nos permite repetir la cantidad de columnas o filas  especificada.
+Funcion: [ minmax(tam-minimo, tam maximo) ] permite especificar el tamaño minimo y maximo de una columna.
+~~~
+.container {
+    display: grid;
+    grid-template: 300px 100px 100px / repeat(4, minmax(200px, 1fr));
+    grid-gap: 10px;
+}
+~~~
+
+Al usar [ grid-template-areas ] se debe especificar en el contenedor padre, lo cual nos permitira indicar cuantas areas contendra una fila.
+[ grid-area ] Propiedad aplicada a los hijos de un Grid-Container, nos permite especificar el area que ocupara una celda, esta clase se debe colocar en el item hijo. 
+~~~
+<section class="container">
+    <div class="item header">contenido #1</div>
+    <div class="item left">contenido #2</div>
+    <div class="item contenido">contenido #3</div>
+    <div class="item footer">contenido #5</div>
+</section>
+
+.container {
+    display: grid;
+    grid-template: 100px 1fr 130px / 300px 1fr;
+    grid-gap: 10px;
+    height: 100vh;
+    grid-template-areas:    "header header"
+                            "left contenido"
+                            "footer footer";
+}
+
+.header {
+    grid-area: header;
+}
+
+.left {
+    grid-area: left;
+}
+
+.contenido {
+    grid-area: contenido;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+.item {
+    background: rgb(174, 221, 236);
+    padding: 10px;
+    border: solid 2px red;
+}
+
+~~~
+
 
