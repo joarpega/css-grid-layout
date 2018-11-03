@@ -14,9 +14,9 @@ body {
     /*Valores posibles: align-items: start end center stretch */
     /* align-items: center; */
     /* justify-content: start end center stretch space-around space-between space-evenly; */
-    justify-content: center;
+    justify-content: start;
     /* align-content: start end center stretch space-around space-between space-evenly; */
-    align-content: center;
+    align-content: end;
 }
 
 .item {

@@ -149,7 +149,148 @@ Al usar [ grid-template-areas ] se debe especificar en el contenedor padre, lo c
     padding: 10px;
     border: solid 2px red;
 }
+~~~
+
+[ grid-column-start: inicio ] El inicio esta definido por la linea donde debe empezar.
+
+[ grid-column-end: fin ] El fin esta definido por la linea donde debe terminar.
+
+[ grid-column: inicio / areas_abarca ] Con esta instruccion podemos indicar en que columna inicia y en cual termina, tambien soporta span y valores negativos. 
+~~~
+.container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 10px;
+    height: 100vh;
+}
+
+.item {
+    background: rgb(174, 221, 236);
+    padding: 10px;
+    border: solid 2px red;
+}
+
+.item:nth-of-type(1) {
+    background: blue;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.item:nth-of-type(8) {
+    background: blue;
+    /* grid-column: 2 / span 2; */
+    grid-column: 1 / -1;
+}
+
+.item:nth-of-type(7) {
+    background: blue;
+    grid-column: 2 / 4;
+}
+~~~
+
+Ejemplo para nombrar lineas y su uso.
+~~~
+.container {
+    display: grid;
+    grid-template-columns:  [inicio] 1fr 
+                            [linea2] 1fr 
+                            [linea3] 1fr 
+                            [destacado-end] 1fr 
+                            [linea5] 1fr 
+                            [destacado2-end] 1fr 
+                            [linea7] 1fr 
+                            [Final];
+    grid-template-rows: [inicio] 200px 
+                        [inicio2] 200px 
+                        [final];
+    grid-gap: 5px;
+}
+
+.item {
+    background: rgb(174, 221, 236);
+    padding: 10px;
+    border: solid 2px black;
+}
+
+.item:nth-of-type(1) {
+    grid-column: inicio / destacado-end;
+    grid-row: inicio / final;
+}
+~~~
+
+[ grid-auto-flow: row; ] Especifica el flujo que debe seguir el grid implicito, puede ser en colunas o en filas. El valor por defecto es en filas "row".
 
 ~~~
 
+.container {
+    display: grid;
+    grid-template-columns:  [inicio] 1fr 
+                            [linea2] 1fr 
+                            [linea3] 1fr 
+                            [destacado-end] 1fr 
+                            [linea5] 1fr 
+                            [destacado2-end] 1fr 
+                            [linea7] 1fr 
+                            [Final];
+    grid-template-rows: [inicio] 200px 
+                        [inicio2] 200px 
+                        [final];
+    grid-gap: 5px;
+    /* grid-auto-flow: column; */
+    /* grid-auto-columns: 50px 100px; */
+    grid-auto-rows: 50px 100px;
+}
+~~~
 
+
+### Alineando items
+
+[ justify-items ] Valores posibles: start end center stretch;
+
+[ align-items ] Valores posibles: start end center stretch;
+~~~
+.container {
+    display: grid;
+    grid-gap: 5px;
+    height: 100vh;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+}
+
+.item {
+    background: rgb(174, 221, 236);
+    padding: 10px;
+    border: solid 2px black;
+}
+
+.item:nth-of-type(5) {
+    align-self: start;
+    justify-self: start;
+}
+~~~
+
+### Alineando contenido
+
+[ justify-content ] Valores posibles: start end center stretch space-around space-between space-evenly
+
+[ align-content ] Valores posibles: start end center stretch space-around space-between space-evenly
+~~~
+.container {
+    display: grid;
+    grid-gap: 5px;
+    height: 100vh;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(4, 100px);
+    justify-content: center;
+    align-content: center;
+}
+
+.item {
+    background: rgb(174, 221, 236);
+    padding: 10px;
+    border: solid 2px black;
+}
+~~~
