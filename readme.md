@@ -11,29 +11,32 @@
 </div>
 ~~~
 
-Grid Container: Va a ser nuestro elemento padre el cual va a llevar nuestro nuevo display llamado grid.
+**Grid Container:** Va a ser nuestro elemento padre el cual va a llevar nuestro nuevo display llamado grid.
 
 
-Grid Item: Los grid item son los hijos directos de un grid container.
+**Grid Item:** Los grid item son los hijos directos de un grid container.
 
 
-Grid Line: Lineas divisorias horizontales, verticales y el contorno del grid.
+Grid Line: Líneas divisorias horizontales, verticales y el contorno del grid.
 ![Grid track](/img-doc/1_diagram_numbered_grid_lines.png)
 
 
-Grid Track: Espacio entre dos lineas adyacentes, filas y columnas.
+**Grid Track:** Espacio entre dos líneas adyacentes, filas y columnas.
 ![Grid track](/img-doc/1_Grid_Track.png)
 
 
-Grid Cell: Espacio en dos filas adyacentes y dos columnas adyacentes.
+**Grid Cell:** Espacio en dos filas adyacentes y dos columnas adyacentes.
 ![Grid track](/img-doc/1_Grid_Cell.png)
 
 
-Grid Area: Espacio rodeado por cuatro grid lines (puede ser mayor tamaño).
+**Grid Área:** Espacio rodeado por cuatro grid lines (puede ser mayor tamaño).
 ![Grid track](/img-doc/1_Grid_Area.png)
 
 
-Para inicializar un contenedor con grid debemos colocar  [ display: grid; ], con grid-template-columns se especifica el tamaño de las columnas y la cantidad de columnas.
+***
+
+
+Para inicializar un contenedor con grid debemos colocar **[ display: grid; ]**, con **[ grid-template-columns ]** se especifica el tamaño de las columnas y la cantidad de columnas.
 ~~~
 .container {
     display: grid;
@@ -41,21 +44,21 @@ Para inicializar un contenedor con grid debemos colocar  [ display: grid; ], con
 }
 ~~~
 
-Con [ grid-template-rows ] se especifica el tamaño de las filas y la cantidad de filas.
+Con **[ grid-template-rows ]** se especifica el tamaño de las filas y la cantidad de filas.
 ~~~
 .container {
     display: grid;
     grid-template-rows: 25% 50% 25%;
 }
 ~~~
-Con [ grid-template: filas / columnas; ] podemos configurar las dos anterionres
+Con **[ grid-template: filas / columnas; ]** podemos configurar las dos anteriores
 ~~~
 .container {
     display: grid;
     grid-template: 300px 100px 100px / 50% 200px 400px; 
 }
 ~~~
-Al colocar el [ display: grid ] y [ grid-template: filas / columnas; ] en el hijo 
+Al colocar el **[ display: grid ]** y **[ grid-template: filas / columnas; ]** en el hijo 
 directo creamos un "Subgrid"
 
 Nota: nth-of-type(4) nos permite seleccionar el 4to hijo que tenga la clase 
@@ -83,11 +86,11 @@ especificada
 }
 ~~~
          
-Al usar [ grid-column-gap: 30px; ] nos permite colocar un margen a las columnas.
+Al usar **[ grid-column-gap: 30px; ]** nos permite colocar un margen a las columnas.
 
-Al usar [ grid-row-gap: 30px; ] nos permite colocar un margen a las filas.
+Al usar **[ grid-row-gap: 30px; ]** nos permite colocar un margen a las filas.
 
-Al usar [ grid-gap: filas columnas; ] nos permite colocar un margen a las filas y columnas
+Al usar **[ grid-gap: filas columnas; ]** nos permite colocar un margen a las filas y columnas
 ~~~
 .container {
     display: grid;
@@ -96,10 +99,11 @@ Al usar [ grid-gap: filas columnas; ] nos permite colocar un margen a las filas 
 }
 ~~~
 
-Nueva unidad de medida para los grids [ fr = fracciones ], distribuye el espacio entre columnas de una manera homogenea
+Nueva unidad de medida para los grids **[ fr = fracciones ]**, distribuye el espacio entre columnas de una manera homogénea
 
-Funcion: [ repeat(cantidad, tamaño) ] nos permite repetir la cantidad de columnas o filas  especificada.
-Funcion: [ minmax(tam-minimo, tam maximo) ] permite especificar el tamaño minimo y maximo de una columna.
+Funcion: **[ repeat(cantidad, tamaño) ]** nos permite repetir la cantidad de columnas o filas  especificada.
+
+Funcion: **[ minmax(tam-mínimo, tam-máximo) ]** permite especificar el tamaño mínimo y máximo de una columna.
 ~~~
 .container {
     display: grid;
@@ -108,8 +112,10 @@ Funcion: [ minmax(tam-minimo, tam maximo) ] permite especificar el tamaño minim
 }
 ~~~
 
-Al usar [ grid-template-areas ] se debe especificar en el contenedor padre, lo cual nos permitira indicar cuantas areas contendra una fila.
-[ grid-area ] Propiedad aplicada a los hijos de un Grid-Container, nos permite especificar el area que ocupara una celda, esta clase se debe colocar en el item hijo. 
+Al usar **[ grid-template-areas ]** se debe especificar en el contenedor padre, lo cual nos permitirá indicar cuantas áreas contendrá una fila.
+
+**[ grid-area ]** Propiedad aplicada a los hijos de un Grid-Container, nos permite especificar el área que ocupara una celda, esta clase se debe colocar en el item hijo. 
+
 ~~~
 <section class="container">
     <div class="item header">contenido #1</div>
@@ -151,11 +157,11 @@ Al usar [ grid-template-areas ] se debe especificar en el contenedor padre, lo c
 }
 ~~~
 
-[ grid-column-start: inicio ] El inicio esta definido por la linea donde debe empezar.
+**[ grid-column-start: inicio ]** El inicio está definido por la línea donde debe empezar.
 
-[ grid-column-end: fin ] El fin esta definido por la linea donde debe terminar.
+**[ grid-column-end: fin ]** El fin esta definido por la linea donde debe terminar.
 
-[ grid-column: inicio / areas_abarca ] Con esta instruccion podemos indicar en que columna inicia y en cual termina, tambien soporta span y valores negativos. 
+**[ grid-column: inicio / área _abarca ]** Con esta instrucción podemos indicar en que columna inicia y en cual termina, también soporta span y valores negativos. 
 ~~~
 .container {
     display: grid;
@@ -189,21 +195,21 @@ Al usar [ grid-template-areas ] se debe especificar en el contenedor padre, lo c
 }
 ~~~
 
-Ejemplo para nombrar lineas y su uso.
+**Ejemplo para nombrar líneas y su uso.**
 ~~~
 .container {
     display: grid;
-    grid-template-columns:  [inicio] 1fr 
-                            [linea2] 1fr 
-                            [linea3] 1fr 
-                            [destacado-end] 1fr 
-                            [linea5] 1fr 
-                            [destacado2-end] 1fr 
-                            [linea7] 1fr 
-                            [Final];
-    grid-template-rows: [inicio] 200px 
-                        [inicio2] 200px 
-                        [final];
+    grid-template-columns:  **[inicio]** 1fr 
+                            **[linea2]** 1fr 
+                            **[linea3]** 1fr 
+                            **[destacado-end]** 1fr 
+                            **[linea5]** 1fr 
+                            **[destacado2-end]** 1fr 
+                            **[linea7]** 1fr 
+                            **[Final]**;
+    grid-template-rows: **[inicio]** 200px 
+                        **[inicio2]** 200px 
+                        **[final]**;
     grid-gap: 5px;
 }
 
@@ -219,23 +225,23 @@ Ejemplo para nombrar lineas y su uso.
 }
 ~~~
 
-[ grid-auto-flow: row; ] Especifica el flujo que debe seguir el grid implicito, puede ser en colunas o en filas. El valor por defecto es en filas "row".
+**[ grid-auto-flow: row; ]** Especifica el flujo que debe seguir el grid implícito, puede ser en columnas o en filas. El valor por defecto es en filas "row".
 
 ~~~
 
 .container {
     display: grid;
-    grid-template-columns:  [inicio] 1fr 
-                            [linea2] 1fr 
-                            [linea3] 1fr 
-                            [destacado-end] 1fr 
-                            [linea5] 1fr 
-                            [destacado2-end] 1fr 
-                            [linea7] 1fr 
-                            [Final];
-    grid-template-rows: [inicio] 200px 
-                        [inicio2] 200px 
-                        [final];
+    grid-template-columns:  **[inicio]** 1fr 
+                            **[linea2]** 1fr 
+                            **[linea3]** 1fr 
+                            **[destacado-end]** 1fr 
+                            **[linea5]** 1fr 
+                            **[destacado2-end]** 1fr 
+                            **[linea7]** 1fr 
+                            **[Final]**;
+    grid-template-rows: **[inicio]** 200px 
+                        **[inicio2]** 200px 
+                        **[final]**;
     grid-gap: 5px;
     /* grid-auto-flow: column; */
     /* grid-auto-columns: 50px 100px; */
@@ -246,9 +252,9 @@ Ejemplo para nombrar lineas y su uso.
 
 ### Alineando items
 
-[ justify-items ] Valores posibles: start end center stretch;
+**[ justify-items ]** Alinea horizontalmente, valores posibles: start end center stretch;
 
-[ align-items ] Valores posibles: start end center stretch;
+**[ align-items ]** Alinea verticalmente, valores posibles: start end center stretch;
 ~~~
 .container {
     display: grid;
@@ -274,9 +280,9 @@ Ejemplo para nombrar lineas y su uso.
 
 ### Alineando contenido
 
-[ justify-content ] Valores posibles: start end center stretch space-around space-between space-evenly
+**[ justify-content ]** Alinea Horizontalmente, valores posibles: start end center stretch space-around space-between space-evenly
 
-[ align-content ] Valores posibles: start end center stretch space-around space-between space-evenly
+**[ align-content ]** Alinea verticalmente, valores posibles: start end center stretch space-around space-between space-evenly
 ~~~
 .container {
     display: grid;
